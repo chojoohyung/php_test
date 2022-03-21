@@ -244,3 +244,5 @@ print "log2(8) = " . my_log(8,2) . "<br>";
 print "<br>";
 print "log2(8) = " . my_log(8) . "<br>";   //default parameter
 ?>
+
+echo([=[=]])
