@@ -245,4 +245,339 @@ print "<br>";
 print "log2(8) = " . my_log(8) . "<br>";   //default parameter
 ?>
 
-echo([=[=]])
+<?
+function factorial($n)
+  {
+    //팩토리얼 함수 구현
+    if($n == 1)  return(1);
+    return( $n * factorial($n-1));
+  }
+
+for($i = 1; $i <=10; $i++)
+  print "factorial($i) = ".factorial($i)."<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function fibo($num)
+{ //피보나치 함수구현 (앞에 두수를 더한다)
+  if ($num ==0 || $num == 1)  return ($num);
+  return (fibo ($num - 1) + fibo ($num -2));
+}
+
+for ($i = 0 ; $i <= 4 ; $i++)
+  print "fibo($i) = ".fibo($i)."<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function hanoi($number, $from, $via, $to)
+{ //하노이 함수 구현
+  if($number == 1)
+    print(" move disc $number from $from to $to <br>");
+  else
+  {
+    hanoi($number -1, $from, $to, $via);
+    print(" move disc $number from $from to $to <br>");
+    hanoi($number -1, $via, $from, $to);
+  }
+}
+hanoi(5,'A','B','C');
+?>
+  }
+}
+
+<?
+
+<?
+print "================================<br>";
+?>
+
+<?
+//지역변수
+//함수 안에서 정의 된 변수는 변수 값의 변화가 함수 밖에서는 적용 되지 않음
+function make_tan()
+{
+ $i = $i + 10;
+}
+$i = 0;
+make_tan();
+print $i;
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+//전역변수
+//함수 내에서 함수 영역 밖에 있는 변수를 참조하고 싶을 경우 참조하려는 변수를 global로 선언하고 그 변수를 전역(global)변수라고 부름
+function counts()
+  {
+    global $i;
+    $i = $i + 1;
+  }
+$i = 0;
+while ($i < 10){
+  counts();
+  print $i."<br>";
+}
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+//정적변수
+//함수를 호출할 때마다 이전의 함수 호출 시 가지고 있었던 변수의 내용을 유지하고 싶을 때 정적(static)변수를 사용함
+function inc()
+  { 
+    static $i = 1;
+    print $i."<br>";
+    $i = $i + 1;
+  }
+
+for ($j = 1; $j <= 10; $j++)
+  inc();
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function swap1 ($a,$b)
+  {
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+  }
+
+$i = 3;
+$j = 4;
+
+print "$i, $4 <br>";
+swap2 ($i, $j);
+print "$i. $j";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+//전역변수
+//함수 내에서 함수 영역 밖에 있는 변수를 참조하고 싶을 경우 참조하려는 변수를 global로 선언하고 그 변수를 전역(global)변수라고 부름
+function counts()
+  {
+    global $i;
+    $i = $i + 1;
+  }
+$i = 0;
+while ($i < 10){
+  counts();
+  print $i."<br>";
+}
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+//정적변수
+//함수를 호출할 때마다 이전의 함수 호출 시 가지고 있었던 변수의 내용을 유지하고 싶을 때 정적(static)변수를 사용함
+function inc()
+  { 
+    static $i = 1;
+    print $i."<br>";
+    $i = $i + 1;
+  }
+
+for ($j = 1; $j <= 10; $j++)
+  inc();
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function swap1 ($a,$b)
+  {
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+  }
+
+$i = 3;
+$j = 4;
+
+print "$i, $j <br>";
+swap1 ($i, $j);
+print "$i, $j";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function swap2(&$a, &$b)
+  {
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+  }
+$i = 3;
+$j = 4;
+print "$i, $j <br>";
+swap2($i, $j);
+print "$i, $j";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?PHP
+//삼각함수
+$result_sin = sin( M_PI / 6 );
+print "sin(30) = $result_sin <br>";
+$result_cos = cos( M_PI / 6 );
+print "cos(30) = $result_cos <br>";
+$result_tan = tan( M_PI / 6 );
+print "tan(30) = $result_tan <br>";
+$result = asin( $result_sin );
+print "asin($result_sin) = $result <br>";
+$result = acos( $result_cos );
+print "acos($result_cos ) = $result <br>";
+$result = atan( $result_tan );
+print "atan($result_tan) = $result <br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//로그
+$result = log(10);
+print "log(10) = $result <br>";
+$result = log10(10);
+print "log10(10) = $result <br>";
+$result = sqrt(49);
+print "sqrt(49) = $result <br>";
+$result = pow(10, 2);
+print "pow(10, 2) = $result";
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//한국,뉴욕,파리 시간
+$seoul = getdate();
+
+print "현재시간 :" .
+  $seoul["year"]. "년" .$seoul["mon"]. "월" .$seoul["mday"]. "일". $seoul["hours"]. "시" .$seoul["minutes"]. "분" .$seoul["seconds"]. "초<br>";
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+$year = gmdate("Y");
+$mon = gmdate("m");
+$day = gmdate("d");
+$hour = gmdate("h");
+$min = gmdate("m");
+$sec = gmdate("s");
+
+$seoul = getdate(mktime($hour+9,$min,$sec,$mon,$day,$year));
+print "Seoul : " .
+  $seoul["year"]."-". $seoul["mon"]."-". $seoul["mday"]."@". $seoul["hours"]."-". $seoul["minutes"]."-". $seoul["seconds"]."(24h:min:sec)<br>";
+
+$ny = getdate(mktime($hour-5,$min,$sec,$mon,$day,$year));
+print "Seoul : " .
+  $ny["year"]."-". $ny["mon"]."-". $ny["mday"]."@". $ny["hours"]."-". $ny["minutes"]."-". $ny["seconds"]."(24h:min:sec)<br>";
+
+$paris = getdate(mktime($hour+1,$min,$sec,$mon,$day,$year));
+print "Seoul : " .
+  $paris["year"]."-". $paris["mon"]."-". $paris["mday"]."@". $paris["hours"]."-". $paris["minutes"]."-". $paris["seconds"]."(24h:min:sec)<br>";
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//두 정수를 더하기
+$num1 = 999999999999999999;
+$num2 = $num1 + 2;
+print $num2 . "<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+$num1 =
+"77777777777777777777777777777777777.5555555555555555555555555";
+$num2 =
+"22222222222222222222222222222222222.3333333333333333333333333";
+$num3 = "12345678901234567890123456789";
+$num4 = "90000000000000000000000000000";
+$value = bcadd ($num1, $num2, 20);
+print "bcadd: " . $value . "<br>";
+$value = bcsub ($num1, $num2, 20);
+print "bcsub: " . $value . "<br>";
+$value = bcdiv ($num2, "2", 10);
+print "bcdiv: " . $value . "<br>";
+$value = bcmod ($num3, 2);
+print "bcmod: " . $value . "<br>";
+$value = bcsqrt ($num4, 20);
+print "bcsqrt: " . $value . "<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+  for ( $x = 10; $x < 151; $x = $x + 10) {
+       print ("bcpow(2," . $x . ") = (" . bcpow(2, $x) . ")<br>");
+  }
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//mt_rand
+//난수를 생성
+//파라미터에 아무런 값도 주지 않으면 0부터 RAND_MAX까지의 숫자 중에서 하나의 값을 임의로 선택하여 리턴
+//파라미터에 min과 max를 주면 min부터 max 까지의 숫자 사이에서 하나의 값을 임의로 선택하여 리턴
+mt_srand ((double)microtime() * 1000000);
+$random = mt_rand (0, 100000);
+print "random:"  . $random . "<br>";
+?>
