@@ -581,3 +581,208 @@ mt_srand ((double)microtime() * 1000000);
 $random = mt_rand (0, 100000);
 print "random:"  . $random . "<br>";
 ?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+$result_sin = sin( M_PI / 6);
+print "sin(30) = $result_sin <br>";
+$result_cos = cos( M_PI / 6);
+print "cos(30) = $result_cos <br>";
+$result_tan = tan( M_PI / 6);
+print "tan(30) = $result_tan <br>";
+
+print __FILE__."<br>";
+print __LINE__."<br>";
+
+$result = asin ($result_sin);
+print "asin($result_sin) = $result <br>";
+$result = acos ($result_cos);
+print "acos($result_cos) = $result <br>";
+$result = atan ($result_tan );
+print "atan ($result_tan ) = $result <br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+function info ()
+{
+print “OS: “ . PHP_OS . “ Operating System<br>”;
+print “PHP: “ . PHP_VERSION . “<br>”;
+}
+info();
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+$var =10; //전역 변수로 선언함
+/*
+PHP는 모든 전역 변수를 $GLOBALS 배열에 저장
+  이 배열에 인덱스로 변수의 이름을 사용하면, 해당 전역 변수의 값에 접근할 수 있다.
+  이 배열은 함수 내부에서도 접근할 수 있으며, 이 배열을 통해 바로 전역 변수의 값을 변경할 수 도 있다.*/
+function varFunc(){
+  echo"함수 내부에서 호출한 전역 변수 var의 값은 {$var}입니다.<br>";
+    echo"함수 내부에서 호출한 전역 변수 var의 값은 {$GLOBALS['var']}입니다.<br>";
+}
+varFunc();
+echo "함수 밖에서 호출한 전역변수 var의 값은 {$var}입니다.";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+define (“R2”, 1.4142135623731);
+define (“R3”, 1.7320508075689);
+$sum = R2 + R3;
+print “R2: “ . R2 . “<br>”;
+print “R3: “ . R3 . “<br>”;
+print “R2+R3: “ . $sum . “<br>”;
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+define("a", 3*3);
+define("b", 4*4);
+
+$c = a+b;
+
+print($c);
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+function oneUp($var) {  //var는 변수값을 받는다  
+$var +=1;
+}
+//실행
+$num=5;
+oneUp($num); // num을 인수로 한다
+echo $num;?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//ucfirst = str 문자열의 첫번째 문자를 대문자로 변환한 뒤 변환된 문자열을 리턴
+//ucwords =str 문자열에서 각각의 단어마다 첫번째 문자를 대문자로 변환한 뒤 변환된 문자열을 리턴
+$str = "Apple Orange pEAr";
+$str1 = strtoupper ($str);
+print $str1 . "<br>";
+$str2 = strtolower ($str);
+print $str2 . "<br>";
+$str3 = ucfirst ($str);
+print $str3 . "<br>";
+$str4 = ucwords ($str);
+print $str4 . "<br>";
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//str의 start+1 번째 문자부터 length 만큼의 문자열을 선택하고 그 선택된 부분 문자열을 리턴
+//두 개 또는 세 개의 파라미터를 가질 수 있음
+//예를 들어 substr ($str, 4)를 호출하면 문자열 $str의 5번째 문자부터 문자열의 끝문자까지의 부분 문자열을 리턴
+$str = “1234567890 abcdefghijklmnopqrstuvwxyz”;
+$str1 = substr ($str, 2, 5);
+print $str1 . “<br>”;
+$str2 = substr ($str, 8, 5);
+print $str2 . “<br>”;
+$str3 = substr ($str, 12, 8);
+print $str3 . “<br>”;
+$str4 = substr ($str, -9, 8);
+print $str4 . “<br>”;
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//문자열의 출력을 형식화된 문자열로 출력
+$num = 3.141592;
+printf("정수형식= %d, 실수형식 = %0.2f",$num, $num);
+?>
+
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//문자열을 주어진 문자열로 분리
+$date = "September 30 2017";
+sscanf($date, "%s %d %d",$month, $day, $year);
+printf("%d/%s/%d", $year, $month,$day);
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+//문자열을 반복하여 출력할 때
+$str = "Hello World!! ";
+printf(str_repeat($str, 5));
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+
+<?
+//구분자로 문자열을 분리할 때
+$str = 'one/two/three/four';
+$value = explode('/', $str);
+foreach( $value as $val)
+print $val."<br>";
+print "<br>";
+$value = explode('/', $str, 2);
+foreach( explode('/', $str, 2) as $val)
+print $val."<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+//배열을 문자열로 만들 때
+$numbers = array(1,2,3,4);
+$string = implode($numbers );
+printf("%s",$string);
+?>
