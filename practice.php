@@ -786,3 +786,480 @@ $numbers = array(1,2,3,4);
 $string = implode($numbers );
 printf("%s",$string);
 ?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+
+<?
+class Student //클래스 이름선언 클래스 : 동종의 객체(object)들을 묶어 정의 한 것. 객체: 데이터+함수
+  {
+    public $studentId; //멤버변수 (attribute) 선언
+    public $studentName;
+
+    public function printStudent ($id, $name) // 멤버함수(method)선언, 멤버함수는 멤버변수를 엑세스
+    {
+      print "ID : ". $id . "<br>";
+      print "Name : " . $name . "<br>";
+    }
+  }
+
+$object = new Student; // 객체 선언
+$object->studentId = 20171234; //객체 내의 멤버변수를 가리켜 값을 지정한다
+$object->studentName = "Alice";
+
+$object->printStudent($object->studentId, $object->studentName); //출력한다
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+
+
+<?
+class Student
+{
+
+  public $StudentID;
+  public $StudentName;
+
+  function printStudent ()
+  {
+    print "ID: " . $this->StudentID . "<br>";
+    print "Name: ". $this->StudentName . "<br>";
+  }
+}
+$object = new Student;
+$object->StudentID = 20181234;
+$object->StudentName = "Alice";
+$object->printStudent();
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+class Student
+{
+  //private은 접근 금지
+
+  private $StudentID;
+  private $StudentName;
+
+  function printStudent ()
+  {
+    print "ID: " . $this->StudentID . "<br>";
+    print "Name: ". $this->StudentName . "<br>";
+  }
+}
+$object = new Student;
+$object->StudentID = 20181234;
+$object->StudentName = "Alice";
+$object->printStudent();
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+
+<?
+//method를 이용하여 적용 attribute 변경
+class Student
+{
+private $studentId;
+private $studentName;
+public function printStudent()
+{
+print "ID : ". $this->studentId . "<br>";
+print "Name : ". $this->studentName . "<br>";
+}
+public function setStudentId($id)
+{
+$this->studentId = $id;
+}
+  
+public function setStudentName($name)
+  {
+    $this->studentName = $name;
+  }
+}
+$object = new Student;
+$object->setStudentId(20171234);
+$object->setStudentName("Alice");
+
+$object->printStudent();
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+
+<?
+class fruit
+  { 
+    private $_fruit_name;
+    private $_price;
+    private $_color;
+
+    function __construct($name, $price, $color)
+    {
+      $this->_fruit_name = $name;
+      $this->_price = $price;
+      $this->_color = $color;
+    }
+    function print_fruit()
+    {
+      print "Fruit name: $this->_fruit_name<br>";
+      print "Fruit price: $this->_price<br>";
+      print "Fruit color: $this->_color<br>";
+      print "<br>";
+    }
+  }
+
+$Apple = new fruit ('Apple',1000,'red');
+$Orange = new fruit ('Orange',2000,'Orange');
+$Banana = new fruit ('Banana',500,'yellow');
+$Pear = new fruit ('Pear',3000,'gray');
+$Apple->print_fruit();
+$Orange->print_fruit();
+$Banana->print_fruit();
+$Pear->print_fruit();
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?PHP
+  class People
+  {
+    protected $name;
+    protected $age;
+    
+    function printPeople ()
+    {
+      print "Name : ". $this ->name . "<br> ";
+      print "Age : ". $this ->age . "<br> ";
+    }
+  }
+
+  class Student extends People
+  {
+    private $studentId;
+
+    function __construct($name, $age, $id)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->studentId   = $id;
+    }
+    function printStudent()
+    {
+      print "- Student - <br>";
+      $this -> printPeople ();
+      print "Id : ". $this -> studentId . "<br> ";
+    }
+  }
+
+  class Professor extends People
+  {
+    private $office_No;
+
+    function __construct($name, $age, $no)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->office_No   = $no;
+    }
+    function printProfessor()
+    {
+      print "- Professor - <br>";
+      $this -> printPeople ();
+      print "Office_No : ". $this -> office_No . "<br> ";
+    }
+  }
+
+  class Staff extends People
+  {
+    private $title;
+
+    function __construct($name, $age, $title)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->title   = $title;
+    }
+    function printStaff()
+    {
+      print "- Staff - <br>";
+      $this -> printPeople ();
+      print "Title : ". $this -> title . "<br> ";
+    }
+  }
+
+  $object1 = new Student("Lee", "21", "20170123");
+  $object2 = new Professor("Kim", "42", "107");
+  $object3 = new Staff("Park", "37", "Chief");
+
+  $object1->printStudent();
+  print "<br>";
+  $object2->printProfessor();
+  print "<br>";
+  $object3->printStaff(); 
+  print "<br>";
+?>
+
+
+<?
+print "================================<br>";
+?>
+
+
+<?PHP
+  class People
+  {
+    protected $name;
+    protected $age;
+    
+    function printPeople()
+    {
+      print "Name : ". $this ->name . "<br> ";
+      print "Age : ". $this ->age . "<br> ";
+    }
+  }
+
+  class Student extends People
+  {
+    private $studentId;
+
+    function __construct($name, $age, $id)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->studentId   = $id;
+    }
+    function printPeople()
+    {
+      print "- Student - <br>";
+      parent::printPeople (); // 범위결정 연산자, 부모 클래스의 메소드, 생성자에 접근
+      print "Id : ". $this -> studentId . "<br> ";
+    }
+  }
+
+  class Professor extends People
+  {
+    private $office_No;
+
+    function __construct($name, $age, $no)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->office_No   = $no;
+    }
+    function printPeople()
+    {
+      print "- Professor - <br>";
+      parent::printPeople ();
+      print "Office_No : ". $this -> office_No . "<br> ";
+    }
+  }
+
+  class Staff extends People
+  {
+    private $title;
+
+    function __construct($name, $age, $title)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->title   = $title;
+    }
+    function printPeople()
+    {
+      print "- Staff - <br>";
+      parent::printPeople ();
+      print "Title : ". $this -> title . "<br> ";
+    }
+  }
+
+  $object1 = new Student("Lee", "21", "20170123");
+  $object2 = new Professor("Kim", "42", "107");
+  $object3 = new Staff("Park", "37", "Chief");
+
+  $object1->printPeople();
+  print "<br>";
+  $object2->printPeople();
+  print "<br>";
+  $object3->printPeople(); 
+  print "<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?PHP
+  class People
+  {
+    protected $name;
+    protected $age;
+    
+    function printPeople()
+    {
+      print "Name : ". $this ->name . "<br> ";
+      print "Age : ". $this ->age . "<br> ";
+    }
+  }
+
+  class Student extends People
+  {
+    private $studentId;
+
+    function __construct($name, $age, $id)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->studentId   = $id;
+    }
+    function printPeople()
+    {
+      print "- Student - <br>";
+      parent::printPeople (); // 범위결정 연산자, 부모 클래스의 메소드, 생성자에 접근
+      print "Id : ". $this -> studentId . "<br> ";
+    }
+  }
+
+  class Professor extends People
+  {
+    private $office_No;
+
+    function __construct($name, $age, $no)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->office_No   = $no;
+    }
+    function printPeople()
+    {
+      print "- Professor - <br>";
+      parent::printPeople ();
+      print "Office_No : ". $this -> office_No . "<br> ";
+    }
+  }
+
+  class Staff extends People
+  {
+    private $title;
+
+    function __construct($name, $age, $title)
+    {
+      $this->name = $name;
+      $this->age  = $age;
+      $this->title   = $title;
+    }
+    function printPeople()
+    {
+      print "- Staff - <br>";
+      parent::printPeople ();
+      print "Title : ". $this -> title . "<br> ";
+    }
+  }
+
+  $object1 = new Student("Lee", "21", "20170123");
+  $object2 = new Professor("Kim", "42", "107");
+  $object3 = new Staff("Park", "37", "Chief");
+
+  $object1->printPeople();
+  print "<br>";
+  $object2->printPeople();
+  print "<br>";
+  $object3->printPeople(); 
+  print "<br>";
+?>
+
+<?
+print "================================<br>";
+?>
+
+<?
+$filep = fopen ("./aaa.txt", "r");
+if (!$filep) die ("파일을 열 수 없습니다.");
+while ($line = fgets ($filep, 1024))
+    print $line . "<br>";
+fclose ($filep);
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+$filep = fopen ("./aaa.tex" , "w");
+if (!$filep) die ("파일을 열 수 없습니다.");
+fputs ($filep, "ROMEO:
+I take thee at thy word:
+Call me but love, and I'll be new baptized;
+Henceforth I never will be Romeo.");
+fclose ($filep);
+$filep = fopen ("./aaa.txt", "r");
+while ($line = fgets ($filep, 1024))
+print $line . "<br>";
+fclose ($filep);
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?
+$filep = fopen("./logfile.txt","w");
+if (!$filep) die ("파일을 열수 없습니다.");
+$time = date("Y-m-d H:i:s",time());
+fputs ($filep, $time);
+fclose ($filep);
+print "connect service";
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?PHP
+$data = file("name.txt");
+foreach($data as $name)
+{
+print "Name : ".$name."<br>";
+}
+?>
+
+<?
+print "================================<br>";
+?>
+
+
+<?PHP
+$dataset = file("major.txt");
+foreach($dataset as $data)
+{
+$str = explode(" ", $data);
+print "Nmae : ".$str[0].", Major : ".$str[1]."<br>";
+}
+?>
